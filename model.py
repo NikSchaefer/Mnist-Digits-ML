@@ -3,6 +3,9 @@ from keras.layers.core import Dropout
 import tensorflow as tf
 from keras.models import Sequential
 
+
+SAVE_PATH = "save/model"
+
 dataset = tf.keras.datasets.mnist
 
 (train_images, train_labels), (test_images, test_labels) = dataset.load_data()
@@ -36,7 +39,7 @@ test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
 
 print(f"\n loss: {test_loss}\n acc: {test_acc}")
 
-
+model.save(SAVE_PATH)
 
 """
 accuracy:
